@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @stat.game_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @stat.user_id %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @stat.score %>
+</p>
+
+<p>
+  <strong>Accuracy:</strong>
+  <%= @stat.accuracy %>
+</p>
+
+<p>
+  <strong>Average time:</strong>
+  <%= @stat.average_time %>
+</p>
+
+<%= link_to 'Edit', edit_stat_path(@stat) %> |
+<%= link_to 'Back', stats_path %>
