@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project2</title>
+    <title>KIDS FUN BRAIN APP</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,17 @@
   </head>
 
   <body>
+
+    <div class="container">
+      <nav>
+        <% if @current_user.present? %>
+          <%= link_to @current_user.name, @current_user %>
+          |
+          <%= link_to 'Logout', login_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', login_path %>
+        <% end %>
+      </nav>
     <%= yield %>
   </body>
 </html>
