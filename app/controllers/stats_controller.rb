@@ -1,5 +1,8 @@
 class StatsController < ApplicationController
 
+  # before_action :check_if_logged_in, only: [:create]
+
+
   # GET /stats
   # GET /stats.json
   def index
@@ -14,6 +17,7 @@ class StatsController < ApplicationController
   # GET /stats/new
   def new
     @stat = Stat.new
+
   end
 
   # GET /stats/1/edit
@@ -23,7 +27,21 @@ class StatsController < ApplicationController
   # POST /stats
   # POST /stats.json
   def create
+    # add to db
+    stat = Stat.new stat_params
 
+    # stat.game_id = 1
+    # stat.score = 97
+    # params[:game_id]
+
+    stat.user = User.first # @current_user
+
+    if stat.save
+      render json: {result: 'success'}, status: :ok
+    else
+      render json: {result: 'error'}, status: 404
+    end
+    # render json: stat_params #, status: :ok
   end
 
   # PATCH/PUT /stats/1
@@ -40,9 +58,9 @@ class StatsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def stat_params
-      params.require(:stat).permit(:game_id, :user_id, :score, :accuracy, :average_time)
+      params.permit(:game_id, :score, :accuracy, :average_time)
     end
 end
