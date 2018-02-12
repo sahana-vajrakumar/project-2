@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     User.update user_params
-    redirect_to user
+    redirect_to @current_user
   end
 
   # DELETE /users/1

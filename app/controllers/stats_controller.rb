@@ -28,20 +28,20 @@ class StatsController < ApplicationController
   # POST /stats.json
   def create
     # add to db
-    stat = Stat.new stat_params
-
-    # stat.game_id = 1
-    # stat.score = 97
+    @stat = Stat.new stat_params
+    @stat.user = User.first # @current_user
+    @stat.game_id = params[:game_id]
+    @stat.score = params[:score]
+    @stat.accuracy = params[:accuracy]
+    @stat.average_time = params[:average_time]
     # params[:game_id]
-
-    stat.user = User.first # @current_user
-
-    if stat.save
+    if @stat.save
       render json: {result: 'success'}, status: :ok
     else
       render json: {result: 'error'}, status: 404
     end
     # render json: stat_params #, status: :ok
+    redirect_to stats_path
   end
 
   # PATCH/PUT /stats/1
