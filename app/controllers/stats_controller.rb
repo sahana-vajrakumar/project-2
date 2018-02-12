@@ -12,6 +12,7 @@ class StatsController < ApplicationController
   # GET /stats/1
   # GET /stats/1.json
   def show
+    @stat = Stat.find params[:id]
   end
 
   # GET /stats/new
@@ -28,19 +29,20 @@ class StatsController < ApplicationController
   # POST /stats.json
   def create
     # add to db
-    stat = Stat.new stat_params
+    @stat = Stat.new stat_params
 
-    # stat.game_id = 1
-    # stat.score = 97
+    @stat.user = User.first # @current_user
+    @stat.game_id = params[:game_id]
+    @stat.score = params[:score]
+    @stat.accuracy = params[:accuracy]
+    @stat.average_time = params[:average_time]
     # params[:game_id]
-
-    stat.user = User.first # @current_user
-
-    if stat.save
-      render json: {result: 'success'}, status: :ok
+    if @stat.save
+      render json: {result: 'success'}, status: :ok, action: :show
     else
       render json: {result: 'error'}, status: 404
     end
+
     # render json: stat_params #, status: :ok
   end
 
