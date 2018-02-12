@@ -12,6 +12,7 @@ class StatsController < ApplicationController
   # GET /stats/1
   # GET /stats/1.json
   def show
+    @stat = Stat.find params[:id]
   end
 
   # GET /stats/new
@@ -40,6 +41,7 @@ class StatsController < ApplicationController
     else
       render json: {result: 'error'}, status: 404
     end
+
     # render json: stat_params #, status: :ok
     redirect_to stats_path
   end
