@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    anime_js_rails (1.1.0)
     annotate (2.7.2)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
@@ -196,6 +197,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anime_js_rails
   annotate
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.7)

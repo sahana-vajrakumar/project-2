@@ -38,14 +38,12 @@ class StatsController < ApplicationController
     @stat.average_time = params[:average_time]
     # params[:game_id]
     if @stat.save
-      render json: {result: 'success'}, status: :ok
+      render json: {result: 'success'}, status: :ok, action: :show
     else
       render json: {result: 'error'}, status: 404
     end
 
     # render json: stat_params #, status: :ok
-
-    redirect_to stats_path
   end
 
   # PATCH/PUT /stats/1
