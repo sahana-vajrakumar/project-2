@@ -28,9 +28,10 @@ class UsersController < ApplicationController
   def create
 
     user = User.create user_params
+
     if user.persisted?
     # did user get saved? is the user present now?
-    session[:user_id] = user.id
+      session[:user_id] = user.id
       redirect_to user
       # will take you to the show page
     else
