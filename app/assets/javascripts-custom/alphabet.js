@@ -1,4 +1,3 @@
-console.log('hi You are in JS file');
 
 let h1 = $('<h1></h1>');
 let container = $('<div></div>').attr('id' , 'container');
@@ -178,6 +177,7 @@ const tryAnswer = function ( event ) {
 $(document).keypress(tryAnswer);
 
 });
+
 
 
 
