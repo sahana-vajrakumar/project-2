@@ -43,7 +43,7 @@ class StatsController < ApplicationController
     end
 
     # render json: stat_params #, status: :ok
-    redirect_to stats_path
+    # redirect_to stats_path
   end
 
   # PATCH/PUT /stats/1
