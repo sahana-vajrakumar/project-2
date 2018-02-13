@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html, body {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 18px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
