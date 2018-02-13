@@ -93,7 +93,7 @@ const initializeTimer = function (){
     $('#main').append(span);
     console.log(`Chose letter: ${selectedLetter}`);
 
-    // startAnimation();
+    startAnimation();
   }; //askQuestion
 
 
@@ -102,7 +102,6 @@ const initializeTimer = function (){
       gameOver();
       return;
     }
-    debugger;
     console.log(event.key);
     if(selectedLetter === event.key){
       span.html('');
@@ -172,17 +171,13 @@ const initializeTimer = function (){
 
   //Animation stuff
   const startAnimation = function() {
-    var anim = anime({
-    targets: '.displayedLetter',
-    height: '80px',
-    width: '80px',
-    translateY: '270',
-    borderRadius: '50%',
-    rotate: '360',
-    duration: '5000',
-    loop: '10'
+    var loop = anime({
+      targets: '.displayedLetter',
+      loop: 3,
+      scale: 2,
+      duration: 3000
     });
-    anim.play();
+    loop.play();
 
   }
 });
