@@ -16,8 +16,8 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.category %></td>
-        <td><%= game.speed %></td>
-        <td><%= game.level %></td>
+        <td><%= game.speeds %></td>
+        <td><%= game.levels %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
