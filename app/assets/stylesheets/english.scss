@@ -7,25 +7,27 @@
 #container{
   margin: 0 auto;
   padding: 20px;
-  /*background-image: url("https://static.studyladder.com/cdn/site/f9/a6e6b62cd616.gif");*/
+  background-image: url("http://clipart-library.com/img/1732634.jpg");
+  background-size: contain;
+  background-size: cover;
   /* background: #FCE14C; */
   background-position: center;
   font-size: 30px;
   border-radius: 20px;
-  height: 400px;
-  width: 600px;
+  height: 600px;
+  width: 800px;
   line-height: 200%;
   text-align: center;
 }
 
 .displayedLetter {
   // border: 2px solid red;
-  position: absolute;
-  let: 0px;
+  position: relative;
+  top: 300px; //half of container height
   // color: white;
 }
 
-.displayGameContols{
+.displayGameControls{
   position: absolute;
   top: 50%;
   width: 100px;

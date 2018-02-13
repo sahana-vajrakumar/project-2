@@ -5,7 +5,7 @@
   let game = $('<div></div>').attr('id' , 'main');
   let score = $('<p></p>').attr('id' , 'score');
   let turns = $('<p></p>').attr('id' , 'turns');
-  let timer = $('<span></span>').attr('id' , 'timer');
+
 
   //Some more variables
   let scores = 0;
@@ -20,12 +20,13 @@
   $('#container').append(game);
   $('#container').append(score);
   $('#container').append(turns);
-  $('.displayGameContols').append(timer);
 
 document.getElementById("container").style.border = "thick solid black";
 
 //When Document is ready!
 $(document).ready(function(){
+  let timer = $('#timer');
+  $('.displayGameContols').append(timer);
 
   loadGame();
   checkRestart();
@@ -52,8 +53,8 @@ $(document).ready(function(){
     var rules = $('<p></p>')
 
     //Rules of the game displayed , appended to main
-    rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
-    main.append(rules);
+    // rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
+    // main.append(rules);
     button.click(function() {
       $('#main').html('');
       // playGame();
@@ -64,17 +65,15 @@ $(document).ready(function(){
 
 
 const initializeTimer = function (){
-  console.log('timer init');
   timeoutValue = timerMax;
   timer.html(timeoutValue);
-  console.log('timer done', timeoutValue);
 
   var timerRunning = setInterval(function(){
     timer.html(`    ${timeoutValue} `);
     if(timeoutValue === 0 )
     {
       clearInterval(timerRunning);
-      gameOver();
+      gameOver(scores);
       return;
     }
     console.log(`${timeoutValue--}`);
@@ -99,7 +98,7 @@ const initializeTimer = function (){
 
   const tryAnswer = function ( event ) {
     if(count <=0 ){
-      gameOver();
+      gameOver(scores);
       return;
     }
     console.log(event.key);
@@ -107,14 +106,14 @@ const initializeTimer = function (){
       span.html('');
       $('#main').append(span);
       scores += 1;
-      $('#score').html(`Scores:${scores}`)
+      $('#scores').html(`Scores:${scores}`)
       $('#turns').html(`No of tries:${count}`)
       askQuestion();
     }else{
       count -= 1;
       $('#turns').html(`No of tries:${count}`)
       if(count === 0){
-      span.html('Game Over');
+        span.html(`Game Over. FINAL SCORE: ${scores}`);
       console.log('score is ', scores);
       // gameOver(scores);
 
@@ -158,8 +157,12 @@ const initializeTimer = function (){
       console.log('prevent default');
     });
     const finalScore = score;
-    $('#score').html(`FINAL SCORE: ${scores}`);
-    span.html('Game Over');
+    $('#scores').html(`FINAL SCORE: ${scores}`);
+    span.html(`Game Over. FINAL SCORE: ${scores}`);
+    //Save Game only when SaveGame button clicked once Game is OVER
+    $('#saveGame').click(function(){
+      sendAjaxRequest(score);
+    });
   }
 
 
