@@ -1,0 +1,48 @@
+.container{
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+
+#container{
+  margin: 0 auto;
+  padding: 20px;
+  /*background-image: url("https://static.studyladder.com/cdn/site/f9/a6e6b62cd616.gif");*/
+  /* background: #FCE14C; */
+  background-position: center;
+  font-size: 30px;
+  border-radius: 20px;
+  height: 400px;
+  width: 600px;
+  line-height: 200%;
+  text-align: center;
+}
+
+.displayedLetter {
+  // border: 2px solid red;
+  position: absolute;
+  let: 0px;
+  // color: white;
+}
+
+.displayGameContols{
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 300px;
+  line-height: 60px;
+  // border: 2px solid red;
+}
+
+#timer{
+  display: inline;
+  text-align: center;
+  position:absolute;
+  top: 90%;
+  font-size: 60px;
+  height: 100px;
+  width: 100px;
+  background-color: #73BFDB;
+  color: white;
+  border-radius: 50%;
+}
