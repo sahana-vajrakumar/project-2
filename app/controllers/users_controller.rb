@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # before_action :check_if_logged_in
+  before_action :check_if_logged_in
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
+  before_action :check_user_id, except: [:new, :create]
+
+  # find out which user's page it is
+  # compare the user's page with current user
+  def check_user_id
+    @user = User.find params[:id]
+    unless @current_user == @user
+      flash[:error] = "You must be authorised to view this page."
+      redirect_to @current_user
+    end
   end
 
   # GET /users/1
