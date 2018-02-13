@@ -10,10 +10,10 @@ puts "Created #{ User.all.length } users."
 
 Game.destroy_all
 
-g1 = Game.create category: 0, speeds: 1, levels: 2
-g2 = Game.create category: 1, speeds: 1, levels: 2
-g3 = Game.create category: 2, speeds: 1, levels: 2
-g4 = Game.create category: 3, speeds: 1, levels: 2
+g1 = Game.create category: 'english', speeds: 1, levels: 2
+g2 = Game.create category: 'maths', speeds: 1, levels: 2
+g3 = Game.create category: 'music', speeds: 1, levels: 2
+g4 = Game.create category: 'code', speeds: 1, levels: 2
 
 
 puts "Created #{ Game.all.length } games."
