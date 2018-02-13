@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 
+  before_action :check_if_logged_in, except: [:show]
+
   # GET /games
   # GET /games.json
   def index
@@ -48,6 +50,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:category, :speed, :level)
+      params.require(:game).permit(:category, :speeds, :levels)
     end
 end

@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>Game</th>
-      <th>User</th>
       <th>Score</th>
       <th>Accuracy</th>
       <th>Average time</th>
+      <th>Level</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,18 +18,13 @@
     <% @stats.each do |stat| %>
       <tr>
         <td><%= stat.game_id %></td>
-        <td><%= stat.user_id %></td>
         <td><%= stat.score %></td>
         <td><%= stat.accuracy %></td>
         <td><%= stat.average_time %></td>
+        <td><%= stat.level %></td>
         <td><%= link_to 'Show', stat %></td>
-        <td><%= link_to 'Edit', edit_stat_path(stat) %></td>
         <td><%= link_to 'Destroy', stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Stat', new_stat_path %>
