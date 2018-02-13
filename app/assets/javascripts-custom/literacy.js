@@ -16,11 +16,16 @@ loadGame();
 
 function loadGame() {
 
+  var button = $('#startGame');
+  //
+  // console.log('button', $('#startGame'));
+  // $('#startGame').click(() => alert('clicked!'));
 
-  var button =  $('<button></button>');
-  button.html ('Start Game');
+  // var button =  $('<button></button>');
+  // button.html ('Start Game');
+  // main.append(button);
+  
   var main = $('#main')
-  main.append(button);
   var rules = $('<p></p>')
   rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
   main.append(rules);

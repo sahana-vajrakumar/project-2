@@ -17,7 +17,7 @@ g4 = Game.create category: 0, speed: 1, level: 1
 g5 = Game.create category: 1, speed: 1, level: 0
 g6 = Game.create category: 1, speed: 2, level: 0
 g7 = Game.create category: 1, speed: 1, level: 1
-g8 = Game.create category: 1, speed: 2, level: 1
+g8 = Game.create category: 2, speed: 2, level: 1
 
 
 puts "Created #{ Game.all.length } games."

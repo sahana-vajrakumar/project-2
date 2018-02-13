@@ -17,6 +17,8 @@
   <%= @game.level %>
 </p>
 
+<button id="startGame">START</button>
+
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
 
@@ -24,5 +26,14 @@
    var gameID = <%= @game.id %>;
 </script>
 
+
+
 <script src="/assets/jquery.js"></script>
-<script src="/assets/alphabet.js"></script>
+
+
+
+
+<script src="/assets/<%= @game.category %>.js"></script>
+
+<%# render the category's custom HTML only if it exists, otherwise ignore it %>
+<%= render partial: "games/category_partials/#{@game.category}" rescue nil %>
