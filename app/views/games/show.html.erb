@@ -25,11 +25,17 @@
    var gameID = <%= @game.id %>;
 </script>
 
-
+<% if @current_user %>
 <%= link_to 'Check Your Stats', user_path(@current_user) %>
+
 <hr>
 
 <script src="/assets/<%= @game.category %>.js"></script>
 
 <%# render the category's custom HTML only if it exists, otherwise ignore it %>
 <%= render partial: "games/category_partials/#{@game.category}" rescue nil %>
+<% else %>
+<br>
+<%= link_to 'LOGIN to PLAY', login_path, class: "btn btn-warning" %>
+
+<% end %>

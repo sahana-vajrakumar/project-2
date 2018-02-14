@@ -11,7 +11,7 @@
   let scores = 0;
   let selectedLetter;
   let count = 3;
-  let timerMax = 6;
+  let timerMax = 10;
   let timeoutValue = timerMax;
   let span = $('<span></span>');
 
@@ -46,11 +46,12 @@ $(document).ready(function(){
   function loadGame() {
      scores = 0;
      count = 3;
-     timerMax = 6;
+     timerMax = 10;
      timeoutValue = timerMax;
     var button = $('#startGame');
     var main = $('#main')
-    var rules = $('<p></p>')
+    var rules = $('<p></p>');
+    $('.displayedLetter').hide();
 
     //Rules of the game displayed , appended to main
     // rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
@@ -60,7 +61,35 @@ $(document).ready(function(){
       // playGame();
       askQuestion();
       initializeTimer();
+
+       var bouncingBall = anime({
+          targets: '.displayedLetter',
+          translateY: '50vh',
+          duration: 500,
+
+          loop: true,
+          direction: 'alternate',
+          easing: 'easeInCubic',
+          scaleX: {
+              value: 1.05,
+              duration: 950,
+              delay: 268
+          },
+          scaleX: {
+              value: 0,
+              duration: 950,
+              delay: 8
+          },
+          backgroundColor: [
+            {value: '#FFF'}, // Or #FFFFFF
+            {value: 'rgb(255, 0, 0)'},
+            {value: 'hsl(100, 60%, 60%)'}
+          ]
+      });
+
   });
+
+
 }//function LoadGame
 
 
@@ -87,7 +116,11 @@ const initializeTimer = function (){
     let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     let index = Math.floor(Math.random() * letters.length);
     selectedLetter = letters[index];
-    span.html(`${selectedLetter}`).addClass('displayedLetter');
+    span.html(`${selectedLetter}`);
+    span.html('Lets do this!!');
+    $('.displayedLetter').html(`${selectedLetter}`);
+    $('.displayedLetter').show();
+
 
     $('#main').append(span);
     console.log(`Chose letter: ${selectedLetter}`);
@@ -156,6 +189,7 @@ const initializeTimer = function (){
     $(document).unbind('keypress', function(event ) {
       console.log('prevent default');
     });
+    $('.displayedLetter').hide();
     const finalScore = score;
     $('#scores').html(`FINAL SCORE: ${scores}`);
     span.html(`Game Over. FINAL SCORE: ${scores}`);
@@ -175,11 +209,13 @@ const initializeTimer = function (){
   //Animation stuff
   const startAnimation = function() {
     var loop = anime({
-      targets: '.displayedLetter',
-      loop: 3,
-      scale: 2,
-      duration: 3000
+      // targets: '.displayedLetter',
+      // translateX: 250,
+      // scale: 2,
+      // rotate: '1turn'
     });
+
+
     loop.play();
 
   }
