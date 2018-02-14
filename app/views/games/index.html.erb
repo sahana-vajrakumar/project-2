@@ -2,23 +2,21 @@
 
 <h1>Games</h1>
 
-<table class="table table-striped">
-  <thead >
-    <tr>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<div class="row">
+  <div class="col-md-6">
     <% @games.each do |game| %>
-      <tr>
-        <td><%= game.category %></td>
-        <td class="success"><%= link_to 'PLAY', game %></td>
-      </tr>
+
+        <h1><%= game.category.upcase %></h1><%= link_to 'PLAY', game , :class=> "btn btn-info play_game_btn"%><br><br>
+        <br/>
+        <img class="img-responsive" class="img-thumbnail" src="/assets/<%= game.category %>.jpg" alt="..." ><br/>
+
+  <hr>
     <% end %>
-  </tbody>
-</table>
+  </div>
+    </div>
+
+
 
 <br>
 

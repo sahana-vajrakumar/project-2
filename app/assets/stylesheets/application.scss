@@ -22,17 +22,16 @@ html, body {
   font-family: 'Comic Sans MS', cursive;
   font-size: 18px;
   height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  padding: 20px;
 }
+
 
 .parallax {
     /* The image used */
     background-image: url("funbrain.jpeg");
-
     /* Set a specific height */
     height: 500px;
-
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -44,4 +43,8 @@ html, body {
 #logo{
   padding: 20px;
   display: inline-block;
+}
+
+.play_game_btn {
+  width: 500px;
 }

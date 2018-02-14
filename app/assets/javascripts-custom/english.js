@@ -79,12 +79,7 @@ $(document).ready(function(){
               value: 0,
               duration: 950,
               delay: 8
-          },
-          backgroundColor: [
-            {value: '#FFF'}, // Or #FFFFFF
-            {value: 'rgb(255, 0, 0)'},
-            {value: 'hsl(100, 60%, 60%)'}
-          ]
+          }
       });
 
   });
@@ -185,7 +180,7 @@ const initializeTimer = function (){
 
   //Game Over function - called once game is over
   const gameOver = function ( score ) {
-    count = 0;
+    count = 0; timeoutValue = 0;
     $(document).unbind('keypress', function(event ) {
       console.log('prevent default');
     });
