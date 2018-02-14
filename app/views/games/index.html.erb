@@ -2,12 +2,10 @@
 
 <h1>Games</h1>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead >
     <tr>
       <th>Category</th>
-      <th>Speed</th>
-      <th>Level</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +14,7 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.category %></td>
-        <td><%= game.speeds %></td>
-        <td><%= game.levels %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="success"><%= link_to 'PLAY', game %></td>
       </tr>
     <% end %>
   </tbody>
