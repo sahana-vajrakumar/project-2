@@ -15,3 +15,5 @@
 //= require jquery
 //= require anime
 //= require bootstrap-sprockets
+//= require Chart.bundle
+//= require chartkick

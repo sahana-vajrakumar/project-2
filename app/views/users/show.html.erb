@@ -21,31 +21,3 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
-
-<hr>
-
-
-<p><strong>Your Stats</strong>:</p>
-
-  <table class="table">
-  <thead>
-  <tr>
-  <th> ID </th>
-  <th> score </th>
-  <th> accuracy </th>
-  <th> average time </th>
-  </tr>
-  </thead>
-  <tbody>
-   <% @current_user.stats.each do |stat| %>
-  <tr>
-     <td><%= stat.id %></td>
-     <td><%= stat.score %></td>
-     <td><%= stat.accuracy %></td>
-     <td><%= stat.average_time %></td>
-  </tr>
- <% end %>
-</tbody>
-</table>
-
- <hr>

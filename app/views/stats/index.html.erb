@@ -22,9 +22,13 @@
         <td><%= stat.accuracy %></td>
         <td><%= stat.average_time %></td>
         <td><%= stat.level %></td>
-        <td><%= link_to 'Show', stat %></td>
-        <td><%= link_to 'Destroy', stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+<%= line_chart @chart_data %>
+<%#= line_chart @stats.map { |stat|
+    { name: stat.game, data: stat.score }
+} %>
