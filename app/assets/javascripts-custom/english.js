@@ -160,6 +160,7 @@ const initializeTimer = function (){
 
 
   const sendAjaxRequest = function( curr_score ) {
+    console.log('score is ', curr_score);
   //Do an AJAX request when game ends
   //Send all the game stats to stat controller
   $.ajax({

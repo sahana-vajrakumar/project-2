@@ -59,7 +59,7 @@ class StatsController < ApplicationController
   def create
     # add to db
     @stat = Stat.new stat_params
-    @stat.user = User.first # @current_user
+    @stat.user = @current_user
     @stat.game_id = params[:game_id]
     @stat.score = params[:score]
     @stat.accuracy = params[:accuracy]
