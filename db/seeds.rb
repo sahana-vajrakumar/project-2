@@ -18,6 +18,10 @@ g4 = Game.create category: 'code', speeds: 1, levels: 2
 
 puts "Created #{ Game.all.length } games."
 
+Question.destroy_all
+q1 = Question.create game: g4, question: "https://media.giphy.com/media/OoZbGs4S4Q9oI/giphy.gif" , answer: "duck"
+q1 = Question.create game: g4, question: "http://www.animatedimages.org/data/media/202/animated-dog-image-0011.gif" , answer: "dog"
+
 Stat.destroy_all
 
 s1 = Stat.create score: 10, average_time: 2, accuracy: 56, level: 1

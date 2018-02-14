@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
+
 <h1> Game Details </h1>
 <p>
   <strong>Category:</strong>
@@ -17,13 +18,14 @@
   <%= @game.levels %>
 </p>
 
-<button id="startGame">START</button>
+
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
 
 <script>
    var gameID = <%= @game.id %>;
+   var questions = <%= @questions.to_json.html_safe %>;
 </script>
 
 

@@ -24,7 +24,7 @@ function loadGame() {
   // var button =  $('<button></button>');
   // button.html ('Start Game');
   // main.append(button);
-  
+
   var main = $('#main')
   var rules = $('<p></p>')
   rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
@@ -77,6 +77,12 @@ const tryAnswer = function ( event ) {
   }
 };
 $(document).keypress(tryAnswer);
+
+// const endGame = function(){
+//   alert(scores)
+// }
+//
+// setInterval(function(){endGame()},10000);
 
 
 const startAnimation = function() {
