@@ -5,7 +5,32 @@ class StatsController < ApplicationController
   # GET /stats
   # GET /stats.json
   def index
-    @stats = Stat.where user: @current_user
+
+    @stats = Stat.where(user: @current_user)
+
+    stats_group = @stats.group_by { |stat| stat.game.category  }
+
+    @chart_data = stats_group.map do |cat, stats|
+      {name: cat, data: stats.map{ |s| [s.created_at, s.score]}.to_h  }
+      # line = { name: cat, data: {} }
+      # stats.each do |stat|
+      #   # line[:data].push( {score: stat.score, created_at: stat.created_at } )
+      #   line[:data][stat.created_at] = stat.score
+      # end
+      # line
+    end
+
+    # p @chart_data
+    # binding.pry
+
+    # s.each { |key, val| puts key, val };
+    #
+    # @chart_data = [
+    #   { name: 'a', data: [1,2,3,4]},
+    #   { name: 'b', data: [100, 200, 300]},
+    #   { name: 'c', data: [10,20,30]},
+    # ]
+
   end
 
   # GET /stats/1
