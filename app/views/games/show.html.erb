@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
+
 <h1> Game Details </h1>
 <p>
   <strong>Category:</strong>
@@ -17,25 +18,26 @@
   <%= @game.levels %>
 </p>
 
-<div class="displayGameContols">
-<button id="startGame" type="button" class="btn btn-info">START GAME</button>
-<button id="pauseGame" type="button" class="btn btn-info">PAUSE GAME</button>
-<button id="restartGame" type="button" class="btn btn-info">RESTART GAME</button>
-</div>
-
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
 
 <script>
    var gameID = <%= @game.id %>;
+   var questions = <%= @questions.to_json.html_safe %>;
 </script>
 
-
+<% if @current_user %>
 <%= link_to 'Check Your Stats', user_path(@current_user) %>
+
 <hr>
 
 <script src="/assets/<%= @game.category %>.js"></script>
 
 <%# render the category's custom HTML only if it exists, otherwise ignore it %>
 <%= render partial: "games/category_partials/#{@game.category}" rescue nil %>
+<% else %>
+<br>
+<%= link_to 'LOGIN to PLAY', login_path, class: "btn btn-warning" %>
+
+<% end %>

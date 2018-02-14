@@ -5,13 +5,13 @@
   let game = $('<div></div>').attr('id' , 'main');
   let score = $('<p></p>').attr('id' , 'score');
   let turns = $('<p></p>').attr('id' , 'turns');
-  let timer = $('<span></span>').attr('id' , 'timer');
+
 
   //Some more variables
   let scores = 0;
   let selectedLetter;
   let count = 3;
-  let timerMax = 6;
+  let timerMax = 10;
   let timeoutValue = timerMax;
   let span = $('<span></span>');
 
@@ -20,12 +20,13 @@
   $('#container').append(game);
   $('#container').append(score);
   $('#container').append(turns);
-  $('.displayGameContols').append(timer);
 
 document.getElementById("container").style.border = "thick solid black";
 
 //When Document is ready!
 $(document).ready(function(){
+  let timer = $('#timer');
+  $('.displayGameContols').append(timer);
 
   loadGame();
   checkRestart();
@@ -45,36 +46,63 @@ $(document).ready(function(){
   function loadGame() {
      scores = 0;
      count = 3;
-     timerMax = 6;
+     timerMax = 10;
      timeoutValue = timerMax;
     var button = $('#startGame');
     var main = $('#main')
-    var rules = $('<p></p>')
+    var rules = $('<p></p>');
+    $('.displayedLetter').hide();
 
     //Rules of the game displayed , appended to main
-    rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
-    main.append(rules);
+    // rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
+    // main.append(rules);
     button.click(function() {
       $('#main').html('');
       // playGame();
       askQuestion();
       initializeTimer();
+
+       var bouncingBall = anime({
+          targets: '.displayedLetter',
+          translateY: '50vh',
+          duration: 500,
+
+          loop: true,
+          direction: 'alternate',
+          easing: 'easeInCubic',
+          scaleX: {
+              value: 1.05,
+              duration: 950,
+              delay: 268
+          },
+          scaleX: {
+              value: 0,
+              duration: 950,
+              delay: 8
+          },
+          backgroundColor: [
+            {value: '#FFF'}, // Or #FFFFFF
+            {value: 'rgb(255, 0, 0)'},
+            {value: 'hsl(100, 60%, 60%)'}
+          ]
+      });
+
   });
+
+
 }//function LoadGame
 
 
 const initializeTimer = function (){
-  console.log('timer init');
   timeoutValue = timerMax;
   timer.html(timeoutValue);
-  console.log('timer done', timeoutValue);
 
   var timerRunning = setInterval(function(){
     timer.html(`    ${timeoutValue} `);
     if(timeoutValue === 0 )
     {
       clearInterval(timerRunning);
-      gameOver();
+      gameOver(scores);
       return;
     }
     console.log(`${timeoutValue--}`);
@@ -88,7 +116,11 @@ const initializeTimer = function (){
     let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     let index = Math.floor(Math.random() * letters.length);
     selectedLetter = letters[index];
-    span.html(`${selectedLetter}`).addClass('displayedLetter');
+    span.html(`${selectedLetter}`);
+    span.html('Lets do this!!');
+    $('.displayedLetter').html(`${selectedLetter}`);
+    $('.displayedLetter').show();
+
 
     $('#main').append(span);
     console.log(`Chose letter: ${selectedLetter}`);
@@ -99,7 +131,7 @@ const initializeTimer = function (){
 
   const tryAnswer = function ( event ) {
     if(count <=0 ){
-      gameOver();
+      gameOver(scores);
       return;
     }
     console.log(event.key);
@@ -107,14 +139,14 @@ const initializeTimer = function (){
       span.html('');
       $('#main').append(span);
       scores += 1;
-      $('#score').html(`Scores:${scores}`)
+      $('#scores').html(`Scores:${scores}`)
       $('#turns').html(`No of tries:${count}`)
       askQuestion();
     }else{
       count -= 1;
       $('#turns').html(`No of tries:${count}`)
       if(count === 0){
-      span.html('Game Over');
+        span.html(`Game Over. FINAL SCORE: ${scores}`);
       console.log('score is ', scores);
       // gameOver(scores);
 
@@ -157,9 +189,14 @@ const initializeTimer = function (){
     $(document).unbind('keypress', function(event ) {
       console.log('prevent default');
     });
+    $('.displayedLetter').hide();
     const finalScore = score;
-    $('#score').html(`FINAL SCORE: ${scores}`);
-    span.html('Game Over');
+    $('#scores').html(`FINAL SCORE: ${scores}`);
+    span.html(`Game Over. FINAL SCORE: ${scores}`);
+    //Save Game only when SaveGame button clicked once Game is OVER
+    $('#saveGame').click(function(){
+      sendAjaxRequest(score);
+    });
   }
 
 
@@ -172,11 +209,13 @@ const initializeTimer = function (){
   //Animation stuff
   const startAnimation = function() {
     var loop = anime({
-      targets: '.displayedLetter',
-      loop: 3,
-      scale: 2,
-      duration: 3000
+      // targets: '.displayedLetter',
+      // translateX: 250,
+      // scale: 2,
+      // rotate: '1turn'
     });
+
+
     loop.play();
 
   }
