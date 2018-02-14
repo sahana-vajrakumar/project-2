@@ -32,6 +32,11 @@ $(document).ready(function(){
   checkRestart();
 
 
+  function playMusic(){
+  var music = new Audio('/assets/clap.wav');
+  music.play();
+  }
+
   function checkRestart(){
     $('#restartGame').click(function() {
       console.log('restart game');

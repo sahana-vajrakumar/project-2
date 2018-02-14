@@ -13,14 +13,18 @@ Game.destroy_all
 g1 = Game.create category: 'english', speeds: 1, levels: 2
 g2 = Game.create category: 'maths', speeds: 1, levels: 2
 g3 = Game.create category: 'music', speeds: 1, levels: 2
-g4 = Game.create category: 'code', speeds: 1, levels: 2
+g4 = Game.create category: 'voice', speeds: 1, levels: 2
 
 puts "Created #{ Game.all.length } games."
 
 Question.destroy_all
 
 q1 = Question.create game: g4, question: "https://media.giphy.com/media/OoZbGs4S4Q9oI/giphy.gif" , answer: "duck"
-q1 = Question.create game: g4, question: "http://www.animatedimages.org/data/media/202/animated-dog-image-0011.gif" , answer: "dog"
+q2 = Question.create game: g4, question: "http://www.animatedimages.org/data/media/202/animated-dog-image-0011.gif" , answer: "dog"
+q3 = Question.create game: g4, question: "http://bestanimations.com/Animals/Mammals/Elephants/elephantclipart/cute-elephant-animated-clip-art-gif-2.gif" , answer: "elephant"
+q4 = Question.create game: g4, question: "http://laoblogger.com/images/3d-cartoon-clipart-hd-6.jpg" , answer:"lion"
+q5 = Question.create game: g4, question: "http://78.media.tumblr.com/tumblr_m6srdkC8m21qgd7tso1_500.gif" , answer:"Amir"
+
 
 puts "Created #{ Question.all.length } questions."
 
@@ -43,6 +47,21 @@ s12 = Stat.create score: 4, average_time: 2.3, accuracy: 79, level: 1, user: u1,
 s13 = Stat.create score: 14, average_time: 3.7, accuracy: 83, level: 1, user: u1, game: g2, created_at: Date.today - 2.days
 s14 = Stat.create score: 7, average_time: 1.9, accuracy: 70, level: 1, user: u1, game: g2, created_at: Date.today - 1.days
 
+s8 = Stat.create score: 30, average_time: 2.7, accuracy: 23, level: 1, user: u1, game: g3, created_at: Date.today - 7.days
+s9 = Stat.create score: 24, average_time: 3.2, accuracy: 51, level: 1, user: u1, game: g3, created_at: Date.today - 6.days
+s10 = Stat.create score: 46, average_time: 4.3, accuracy: 57, level: 1, user: u1, game: g3, created_at: Date.today - 5.days
+s11 = Stat.create score: 38, average_time: 3.1, accuracy: 61, level: 1, user: u1, game: g3, created_at: Date.today - 4.days
+s12 = Stat.create score: 28, average_time: 2.3, accuracy: 79, level: 1, user: u1, game: g3, created_at: Date.today - 3.days
+s13 = Stat.create score: 39, average_time: 3.7, accuracy: 83, level: 1, user: u1, game: g3, created_at: Date.today - 2.days
+s14 = Stat.create score: 26, average_time: 1.9, accuracy: 70, level: 1, user: u1, game: g3, created_at: Date.today - 1.days
+
+s15 = Stat.create score: 24, average_time: 2.7, accuracy: 23, level: 1, user: u1, game: g4, created_at: Date.today - 7.days
+s16 = Stat.create score: 35, average_time: 3.2, accuracy: 51, level: 1, user: u1, game: g4, created_at: Date.today - 6.days
+s17 = Stat.create score: 18, average_time: 4.3, accuracy: 57, level: 1, user: u1, game: g4, created_at: Date.today - 5.days
+s18 = Stat.create score: 25, average_time: 3.1, accuracy: 61, level: 1, user: u1, game: g4, created_at: Date.today - 4.days
+s19 = Stat.create score: 38, average_time: 2.3, accuracy: 79, level: 1, user: u1, game: g4, created_at: Date.today - 3.days
+s20 = Stat.create score: 44, average_time: 3.7, accuracy: 83, level: 1, user: u1, game: g4, created_at: Date.today - 2.days
+s21 = Stat.create score: 31, average_time: 1.9, accuracy: 70, level: 1, user: u1, game: g4, created_at: Date.today - 1.days
 
 puts "Created #{ Stat.all.length } stats."
 

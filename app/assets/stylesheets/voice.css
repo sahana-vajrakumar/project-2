@@ -86,3 +86,8 @@
   .voice{
     /* background-color: red; */
   }
+
+  #Img{
+    width: 100px;
+    height: 100px;
+  }
