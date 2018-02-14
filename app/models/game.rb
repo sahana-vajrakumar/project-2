@@ -4,6 +4,6 @@ class Game < ApplicationRecord
   has_many :users, through: :stats
   has_many :questions
 
-  enum category: [:english, :maths, :music, :code]
+  enum category: [:english, :maths, :music, :voice]
 
 end
