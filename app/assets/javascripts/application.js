@@ -15,13 +15,5 @@
 //= require jquery
 //= require anime
 //= require bootstrap-sprockets
-<<<<<<< HEAD
 //= require Chart.bundle
 //= require chartkick
-=======
-
-function playMusic(){
-var music = new Audio('/assets/clap.wav');
-music.play();
-}
->>>>>>> 362e39b874edebb5ebb4cebeba0daa17904a141a
