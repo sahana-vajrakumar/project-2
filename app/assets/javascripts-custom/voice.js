@@ -3,6 +3,7 @@ $(document).ready(function(){
 
   let selectedWord;
   let final_transcript = '';
+  let play_transcript = '';
   let guessImage;
   let guessWord;
   let index = 0;
@@ -107,18 +108,9 @@ $(document).ready(function(){
     //onclick for level 1
 
 
-
-
-
-
-
-
-
   $( "#level1" ).click(function() {
    generateImage();
-   $("#record").css("visibility" , "visible");
-   $("#level1").css("visibility" , "hidden");
-   $("#level2").css("visibility" , "hidden");
+  hide();
 
   });
 
@@ -142,13 +134,8 @@ $(document).ready(function(){
   $( "#level2" ).click(function() {
 
    generateWord();
-   $("#record").css("visibility" , "visible");
-   $("#level1").css("visibility" , "hidden");
-   $("#level2").css("visibility" , "hidden");
+hide();
   });
-
-
-
 
     $( "#nextWord" ).click(function() {
       console.log(`index:${index} length${questions.length}`);
@@ -202,6 +189,82 @@ $(document).ready(function(){
   // $( "#stopGame" ).click(function() {
   //   recognition.stop();
   // });
+
+
+
+
+
+  //this is for coosing levels
+
+
+
+    let play = new webkitSpeechRecognition();
+
+    // recognition.continuous = true;
+    // recognition.interimResults = true;
+
+    play.onresult = function(event) {
+      var interim_transcript = '';
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          play_transcript += event.results[i][0].transcript;
+          console.log(play_transcript);
+          //this for the level 1 game
+          if(play_transcript === "start")
+          {
+            generateWord();
+            hideAll();
+          }else if(play_transcript === "play"){
+
+            generateImage();
+            hideAll();
+
+          }
+
+
+        } else {
+          interim_transcript += event.results[i][0].transcript;
+        }
+      }
+
+
+    };
+
+    $( "#play" ).click(function() {
+
+      play_transcript = ""
+
+
+      play.lang = 6;
+      play.start();
+
+    });
+
+
+   //functions to hide buttons
+
+    let hide = function(){
+
+      $("#record").css("visibility" , "visible");
+      $("#level1").css("visibility" , "hidden");
+      $("#level2").css("visibility" , "hidden");
+      $("#play").css("visibility" , "hidden");
+      $("#msg").css("visibility" , "hidden");
+
+    }
+
+
+
+    let hideAll = function(){
+
+      $("#record").css("visibility" , "visible");
+      $("#level1").css("visibility" , "hidden");
+      $("#level2").css("visibility" , "hidden");
+      $("#play").css("visibility" , "hidden");
+      $("#msg").css("visibility" , "hidden");
+
+    }
+
 
 
 

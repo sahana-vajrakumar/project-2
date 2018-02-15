@@ -125,6 +125,14 @@
   #record{
     visibility: hidden;
   }
+  /* #level1{
+    visibility: hidden;
+  }
+
+  #level2{
+    visibility: hidden;
+  } */
+
 
   #word{
     text-align: center;
