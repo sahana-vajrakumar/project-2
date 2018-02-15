@@ -25,6 +25,8 @@ document.getElementById("container").style.border = "thick solid black";
 
 //When Document is ready!
 $(document).ready(function(){
+  var start = new Date();
+
   let timer = $('#timer');
   $('.displayGameContols').append(timer);
 
@@ -172,11 +174,11 @@ const initializeTimer = function (){
       score: curr_score,
       game_id: gameID,
       accuracy: 20,
-      average_time: 1.5
+      average_time: new Date() - start
     }
   })
   .done(function (data) {
-    console.log(data);
+    console.log(data, data.average_time);
     // Once successful request is done, redirect user to the Profile page
   })
   .fail(function () {
