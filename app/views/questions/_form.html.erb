@@ -1,8 +1,8 @@
-<%= form_with(model: @questions, local: true) do |form| %>
+<%= form_with(model: @questions, html: {multipart: true} ,local: true) do |form| %>
 
   <div class="field">
     <%= form.label :question, "Images" %>
-    <%= form.text_field :question %>
+    <%= form.cl_image_upload :question %>
   </div>
 
   <div class="field">
