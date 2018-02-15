@@ -81,12 +81,12 @@ $(document).ready(function(){
               value: 1.05,
               duration: 1050,
               delay: 268
-          },
-          scaleX: {
-              value: 0,
-              duration: 1050,
-              delay: 8
           }
+          // scaleX: {
+          //     value: 0,
+          //     duration: 1050,
+          //     delay: 8
+          // }
       });
 
   });

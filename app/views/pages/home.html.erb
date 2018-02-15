@@ -1,23 +1,9 @@
 
-
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
-<!-- <h1>FUN BRAIN!!!</h1>
-<h6>where learning meets fun</h6>
-
-
-<%= link_to 'SIGN UP TODAY!!', new_user_path %>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
-<!--
-<div class="parallax-window" data-parallax="scroll" data-image-src="assets/funbrain.jpeg"></div> -->
-
-
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
-
 
 <div class="jumbotron text-center">
   <br>
@@ -25,7 +11,9 @@
   <img class="mainpic"src="http://fultonchurch.org/wp-content/uploads/2015/01/chf-cartoon-kids.gif">
   <div class="welcomeuser">
     <% if @current_user.present? %>
-    <h3>Welcome, <%= link_to @current_user.name, @current_user %></h3>
+      <h3>Welcome, <%= link_to @current_user.name, @current_user %></h3>
+    <% else %>
+      <h3>Hello children! Tell mummy and daddy to sign up <%= link_to 'here!', new_user_path %></h3>
     <% end %>
   </div>
 </div>
@@ -35,7 +23,7 @@
   <div class="row">
     <div class="col-sm-8">
       <h2>About Us</h2><br>
-      <h4>We are the GIRLS TEAM</h4><br>
+      <h4>GIRLS TEAM!!!</h4><br>
       <img src="https://fthmb.tqn.com/Cc99z4KUrSfHVpBABR_DGKCBP_4=/768x0/filters:no_upscale()/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg">
       <p>SAHANA.LINDA.PRIYANKA</p>
     </div>
