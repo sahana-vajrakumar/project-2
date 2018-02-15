@@ -34,8 +34,6 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.create params[:id]
-
-
   end
 
   # PATCH/PUT /games/1
