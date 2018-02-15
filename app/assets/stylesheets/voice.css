@@ -96,7 +96,7 @@
   .mic{
     height: 50px;
     width: 50px;
-    position: absolute;
+    position: sticky;
     top: 70%;
     left: 50%;
   }
@@ -125,17 +125,47 @@
   #record{
     visibility: hidden;
   }
-  /* #level1{
-    visibility: hidden;
+  #level1{
+    position: inherit;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-left:250px;
+    margin-top: 100px;
+
+
   }
 
   #level2{
-    visibility: hidden;
-  } */
+    position: inherit;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
 
 
   #word{
+    padding-top: 70px;
     text-align: center;
     font-size: 60px;
     font-family: 'Abril Fatface', cursive;
+  }
+
+  #next{
+
+  }
+
+  #rule{
+    text-align: center;
+  }
+
+  .mic2{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+
+
+  }
+
+  #msg{
+    text-align: center;
+
   }
