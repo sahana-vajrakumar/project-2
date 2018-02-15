@@ -7,6 +7,12 @@ $(document).ready(function(){
   let index = 0;
 
 
+  var a1 = anime({
+    targets: '.startGame',
+    scale: 1.2,
+    loop: true
+  });
+  a1.pause();
 //test function to check if voive API is working
 
   const askQuestion = function () {
@@ -65,13 +71,18 @@ $(document).ready(function(){
 
     //console.log(final_transcript);
     console.log(final_transcript);
+      a1.pause();
 
   };
 
 
-  $( "#startGame" ).click(function() {
+  $( ".startGame" ).click(function() {
+    a1.restart();
+
     recognition.lang = 6;
     recognition.start();
+
+
   });
 
   $( "#next" ).click(function() {
@@ -86,7 +97,11 @@ $(document).ready(function(){
 
   });
 
+  function recordingStart(){
+      console.log('recording start');
 
+
+  }
 
 
   // function stopButton() {

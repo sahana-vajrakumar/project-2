@@ -90,4 +90,18 @@
   #Img{
     width: 100px;
     height: 100px;
+
+  }
+
+  .mic{
+    height: 100px;
+    width: 100px;
+  }
+  .startGame{
+    height: 100px;
+    width: 100px;
+    border: 2px solid green;
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
   }
