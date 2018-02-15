@@ -2,6 +2,15 @@
 
 <h1>Here are your game statistics!</h1>
 
+<%= line_chart @score %>
+<%#= line_chart @stats.map { |stat|
+    { name: stat.game, data: stat.score }
+} %>
+<br />
+<%= column_chart @average %>
+
+<hr />
+
 <table  style="width: auto" class="table table-striped">
   <thead>
     <tr>
@@ -26,9 +35,3 @@
     <% end %>
   </tbody>
 </table>
-
-
-<%= line_chart @chart_data %>
-<%#= line_chart @stats.map { |stat|
-    { name: stat.game, data: stat.score }
-} %>

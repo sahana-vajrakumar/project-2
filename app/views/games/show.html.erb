@@ -11,8 +11,6 @@
    var questions = <%= @questions.to_json.html_safe %>;
 </script>
 
-
-
 <script src="/assets/<%= @game.category %>.js"></script>
 
 <%# render the category's custom HTML only if it exists, otherwise ignore it %>
