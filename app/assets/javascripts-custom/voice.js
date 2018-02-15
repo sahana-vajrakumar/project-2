@@ -95,6 +95,8 @@ $(document).ready(function(){
 
   };
 
+    //onclick for level 1
+
 
 
 
@@ -105,13 +107,7 @@ $(document).ready(function(){
    $("#level2").css("visibility" , "hidden");
   });
 
-  $( "#record" ).click(function() {
-    final_transcript = ""
-    $( "#tryImg" ).remove();
-    $( "#wordTryagain" ).remove();
-    recognition.lang = 6;
-    recognition.start();
-  });
+
 
   $( "#next" ).click(function() {
 
@@ -119,28 +115,12 @@ $(document).ready(function(){
     $( "#Img" ).remove();
     $("#next").css("visibility" , "hidden");
     final_transcript = ""
-
-
     index += 1;
     generateImage();
 
   });
 
-
-  $( "#nextWord" ).click(function() {
-
-    $( "#wordImg" ).remove();
-
-    $( "#word" ).remove();
-
-    $("#nextWord").css("visibility" , "hidden");
-    final_transcript = ""
-
-
-    index += 1;
-    generateWord();
-
-  });
+  //onclick for level 2
 
 
   $( "#level2" ).click(function() {
@@ -149,6 +129,47 @@ $(document).ready(function(){
    $("#level1").css("visibility" , "hidden");
    $("#level2").css("visibility" , "hidden");
   });
+
+
+
+
+    $( "#nextWord" ).click(function() {
+      console.log(`index:${index} length${questions.length}`);
+      if (index + 1 < questions.length){
+
+      $( "#wordImg" ).remove();
+
+      $( "#word" ).remove();
+
+      $("#nextWord").css("visibility" , "hidden");
+
+      final_transcript = ""
+
+
+      index += 1;
+      generateWord();
+    }else{
+      $( "#wordImg" ).remove();
+
+      $( "#word" ).remove();
+
+      $("#nextWord").css("visibility" , "hidden");
+      $("#record").css("visibility" , "hidden");
+      $( "#voice" ).append( `<p id="word">Game Over score:${score}</p>` );
+    }
+
+    });
+
+    //voice record
+
+
+    $( "#record" ).click(function() {
+      final_transcript = ""
+      $( "#tryImg" ).remove();
+      $( "#wordTryagain" ).remove();
+      recognition.lang = 6;
+      recognition.start();
+    });
 
 
 
