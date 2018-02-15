@@ -10,6 +10,13 @@ $(document).ready(function(){
   let level = 2;
 
 
+  var a1 = anime({
+    targets: '.startGame',
+    scale: 1.2,
+    loop: true
+  });
+  a1.pause();
+//test function to check if voive API is working
 
 
 
@@ -92,26 +99,33 @@ $(document).ready(function(){
 
     //console.log(final_transcript);
     console.log(final_transcript);
+      a1.pause();
 
   };
 
+    //onclick for level 1
 
 
+
+<<<<<<< HEAD
+  $( ".startGame" ).click(function() {
+    a1.restart();
+
+    recognition.lang = 6;
+    recognition.start();
+
+
+=======
 
   $( "#level1" ).click(function() {
    generateImage();
    $("#record").css("visibility" , "visible");
    $("#level1").css("visibility" , "hidden");
    $("#level2").css("visibility" , "hidden");
+>>>>>>> ddbb4d5175044b5636fafaafcecd655d86bc7fcd
   });
 
-  $( "#record" ).click(function() {
-    final_transcript = ""
-    $( "#tryImg" ).remove();
-    $( "#wordTryagain" ).remove();
-    recognition.lang = 6;
-    recognition.start();
-  });
+
 
   $( "#next" ).click(function() {
 
@@ -119,28 +133,16 @@ $(document).ready(function(){
     $( "#Img" ).remove();
     $("#next").css("visibility" , "hidden");
     final_transcript = ""
-
-
     index += 1;
     generateImage();
 
   });
 
-
-  $( "#nextWord" ).click(function() {
-
-    $( "#wordImg" ).remove();
-
-    $( "#word" ).remove();
-
-    $("#nextWord").css("visibility" , "hidden");
-    final_transcript = ""
-
-
-    index += 1;
-    generateWord();
-
-  });
+<<<<<<< HEAD
+  function recordingStart(){
+      console.log('recording start');
+=======
+  //onclick for level 2
 
 
   $( "#level2" ).click(function() {
@@ -151,6 +153,49 @@ $(document).ready(function(){
   });
 
 
+
+
+    $( "#nextWord" ).click(function() {
+      console.log(`index:${index} length${questions.length}`);
+      if (index + 1 < questions.length){
+
+      $( "#wordImg" ).remove();
+
+      $( "#word" ).remove();
+
+      $("#nextWord").css("visibility" , "hidden");
+
+      final_transcript = ""
+
+
+      index += 1;
+      generateWord();
+    }else{
+      $( "#wordImg" ).remove();
+
+      $( "#word" ).remove();
+
+      $("#nextWord").css("visibility" , "hidden");
+      $("#record").css("visibility" , "hidden");
+      $( "#voice" ).append( `<p id="word">Game Over score:${score}</p>` );
+    }
+
+    });
+
+    //voice record
+
+
+    $( "#record" ).click(function() {
+      final_transcript = ""
+      $( "#tryImg" ).remove();
+      $( "#wordTryagain" ).remove();
+      recognition.lang = 6;
+      recognition.start();
+    });
+>>>>>>> ddbb4d5175044b5636fafaafcecd655d86bc7fcd
+
+
+  }
 
 
   // function stopButton() {

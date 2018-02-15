@@ -11,7 +11,7 @@
   let scores = 0;
   let selectedLetter;
   let count = 3;
-  let timerMax = 10;
+  let timerMax = 60;
   let timeoutValue = timerMax;
   let span = $('<span></span>');
 
@@ -51,12 +51,13 @@ $(document).ready(function(){
   function loadGame() {
      scores = 0;
      count = 3;
-     timerMax = 10;
+     timerMax = 60;
      timeoutValue = timerMax;
     var button = $('#startGame');
     var main = $('#main')
     var rules = $('<p></p>');
     $('.displayedLetter').hide();
+
 
     //Rules of the game displayed , appended to main
     // rules.html('Letters will fall... Press the correct key to knock it away before it hits the ground\nHit the right letter as soon as you see it on screen:');
@@ -66,23 +67,24 @@ $(document).ready(function(){
       // playGame();
       askQuestion();
       initializeTimer();
+      $('#startGame').hide();
+
 
        var bouncingBall = anime({
           targets: '.displayedLetter',
-          translateY: '50vh',
+          translateY: '40vh',
           duration: 500,
-
           loop: true,
           direction: 'alternate',
           easing: 'easeInCubic',
           scaleX: {
               value: 1.05,
-              duration: 950,
+              duration: 1050,
               delay: 268
           },
           scaleX: {
               value: 0,
-              duration: 950,
+              duration: 1050,
               delay: 8
           }
       });

@@ -1,13 +1,212 @@
 
 
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
-
-<h1>FUN BRAIN!!!</h1>
+<!-- <h1>FUN BRAIN!!!</h1>
 <h6>where learning meets fun</h6>
 
 
 <%= link_to 'SIGN UP TODAY!!', new_user_path %>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+<!--
+<div class="parallax-window" data-parallax="scroll" data-image-src="assets/funbrain.jpeg"></div> -->
 
-<div class="parallax-window" data-parallax="scroll" data-image-src="assets/funbrain.jpeg"></div>
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+
+<div class="jumbotron text-center">
+  <br>
+  <img src="http://www.funbrainjr.com/img/framework/logo.png">
+  <img class="mainpic"src="http://fultonchurch.org/wp-content/uploads/2015/01/chf-cartoon-kids.gif">
+  <div class="welcomeuser">
+    <% if @current_user.present? %>
+    <h3>Welcome, <%= link_to @current_user.name, @current_user %></h3>
+    <% end %>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About Us</h2><br>
+      <h4>We are the GIRLS TEAM</h4><br>
+      <img src="https://fthmb.tqn.com/Cc99z4KUrSfHVpBABR_DGKCBP_4=/768x0/filters:no_upscale()/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg">
+      <p>SAHANA.LINDA.PRIYANKA</p>
+    </div>
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>GAMES</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <div class="panel-footer">
+      <h4><%= link_to 'Click to play Our Games', games_path , class: "btn btn-lg" %></h4>
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-font logo-small"></span>
+      <span class="glyphicon glyphicon-bold logo-small"></span>
+
+      <h4>LEARN ALPHABETS</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-plus-sign logo-small"></span>
+      <span class="glyphicon glyphicon-minus-sign logo-small"></span>
+      <span class="glyphicon glyphicon-remove-sign logo-small"></span>
+      <h4>LEARN NUMBERS</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-music logo-small"></span>
+      <h4 style="color:#303030;">LEARN MUSIC</h4>
+      <p>Lorem ipsum dolor sit amet..</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>Our Values</h2><br>
+  <br>
+  <p><img src="http://lapeerfamilychurch.com/blog/wp-content/uploads/2013/01/we-love-kids.png"></p>
+
+  </div><br>
+
+  <h2>What our customers say</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Love IT!!"<br><span>Advika, 2yrs, Priyanka's LO</span></h4>
+      </div>
+      <div class="item">
+        <h4>"One word... WOW!!"<br><span>Saanvi, 15months, Sahana's LO</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Could I... BE any more happy with this company?"<br><span>That's Linda talking about us</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>Our Happy Faces</h2>
+    <h4> Thank U Everyone! </h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 .col-md-offset-4 col-xs-6">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>HAPPY FACES</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>Ad</strong> pic</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$</h3>
+          <h4>p</h4>
+          <button class="btn btn-lg">S</button>
+        </div>
+      </div>
+    </div>
+    <div class=".col-md-4 .col-md-offset-4 col-xs-6">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>THANK U GUYS!!</h1>
+        </div>
+        <div class="panel-body">
+
+          <p><strong>Sa</strong> Pic</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$</h3>
+          <h4>p</h4>
+          <button class="btn btn-lg">S</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> GA, Australia</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
