@@ -105,3 +105,26 @@
     position: relative;
     left: 50%;
   }
+
+  #tryImg{
+    width: 150px;
+    height: 150px;
+  }
+
+  #next{
+    visibility: hidden;
+  }
+
+  #nextWord{
+    visibility: hidden;
+  }
+
+  #record{
+    visibility: hidden;
+  }
+
+  #word{
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Abril Fatface', cursive;
+  }

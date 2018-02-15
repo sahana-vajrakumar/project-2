@@ -20,7 +20,7 @@ puts "Created #{ Game.all.length } games."
 Question.destroy_all
 
 q1 = Question.create game: g4, question: "https://media.giphy.com/media/OoZbGs4S4Q9oI/giphy.gif" , answer: "duck"
-q2 = Question.create game: g4, question: "http://www.animatedimages.org/data/media/202/animated-dog-image-0011.gif" , answer: "dog"
+q2 = Question.create game: g4, question: "http://www.animatedimages.org/data/media/202/animated-dog-image-0712.gif" , answer: "dog"
 q3 = Question.create game: g4, question: "http://bestanimations.com/Animals/Mammals/Elephants/elephantclipart/cute-elephant-animated-clip-art-gif-2.gif" , answer: "elephant"
 q4 = Question.create game: g4, question: "http://laoblogger.com/images/3d-cartoon-clipart-hd-6.jpg" , answer:"lion"
 q5 = Question.create game: g4, question: "http://78.media.tumblr.com/tumblr_m6srdkC8m21qgd7tso1_500.gif" , answer:"Amir"
