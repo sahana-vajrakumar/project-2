@@ -96,6 +96,9 @@
   .mic{
     height: 100px;
     width: 100px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
   }
   .startGame{
     height: 100px;

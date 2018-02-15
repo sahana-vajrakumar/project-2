@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 
   var a1 = anime({
-    targets: '.startGame',
+    targets: '#record',
     scale: 1.2,
     loop: true
   });
@@ -98,8 +98,9 @@ $(document).ready(function(){
     }
 
     //console.log(final_transcript);
+    a1.pause();
     console.log(final_transcript);
-      a1.pause();
+      // a1.pause();
 
   };
 
@@ -107,22 +108,18 @@ $(document).ready(function(){
 
 
 
-<<<<<<< HEAD
-  $( ".startGame" ).click(function() {
-    a1.restart();
-
-    recognition.lang = 6;
-    recognition.start();
 
 
-=======
+
+
+
 
   $( "#level1" ).click(function() {
    generateImage();
    $("#record").css("visibility" , "visible");
    $("#level1").css("visibility" , "hidden");
    $("#level2").css("visibility" , "hidden");
->>>>>>> ddbb4d5175044b5636fafaafcecd655d86bc7fcd
+
   });
 
 
@@ -138,14 +135,12 @@ $(document).ready(function(){
 
   });
 
-<<<<<<< HEAD
-  function recordingStart(){
-      console.log('recording start');
-=======
+
   //onclick for level 2
 
 
   $( "#level2" ).click(function() {
+
    generateWord();
    $("#record").css("visibility" , "visible");
    $("#level1").css("visibility" , "hidden");
@@ -186,16 +181,17 @@ $(document).ready(function(){
 
 
     $( "#record" ).click(function() {
+      a1.play();
       final_transcript = ""
       $( "#tryImg" ).remove();
       $( "#wordTryagain" ).remove();
       recognition.lang = 6;
       recognition.start();
     });
->>>>>>> ddbb4d5175044b5636fafaafcecd655d86bc7fcd
 
 
-  }
+
+
 
 
   // function stopButton() {
