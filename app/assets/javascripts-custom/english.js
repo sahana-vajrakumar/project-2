@@ -7,11 +7,12 @@
   let turns = $('<p></p>').attr('id' , 'turns');
 
 
+  let timerMax = 60;
   //Some more variables
   let scores = 0;
   let selectedLetter;
   let count = 3;
-  let timerMax = 60;
+
   let timeoutValue = timerMax;
   let span = $('<span></span>');
 
@@ -28,16 +29,23 @@ $(document).ready(function(){
   var start = new Date();
 
   let timer = $('#timer');
-  $('.displayGameContols').append(timer);
+  $('.displayGameControls').append(timer);
+
+  $('.t10').click( function(){
+    timerMax = 10;
+    console.log('10 clicked');
+  });
+  $('.t30').click( function(){
+    timerMax = 30;
+  });
+  $('.t60').click( function(){
+    timerMax = 60;
+  });
+
 
   loadGame();
   checkRestart();
 
-
-  function playMusic(){
-  var music = new Audio('/assets/clap.wav');
-  music.play();
-  }
 
   function checkRestart(){
     $('#restartGame').click(function() {
@@ -53,7 +61,6 @@ $(document).ready(function(){
   function loadGame() {
      scores = 0;
      count = 3;
-     timerMax = 60;
      timeoutValue = timerMax;
     var button = $('#startGame');
     var main = $('#main')
@@ -70,7 +77,7 @@ $(document).ready(function(){
       askQuestion();
       initializeTimer();
       $('#startGame').hide();
-
+      $('.timer').hide();
 
        var bouncingBall = anime({
           targets: '.displayedLetter',

@@ -27,11 +27,23 @@ class QuestionsController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    questions = Question.new question_params
-    #     questions.question = params[:question]
-    #     questions.answer = params[:answer]
+
+    questions = Question.new(question_params)
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      questions.question = req["public_id"]
+      # raise 'hell'
+    end
     questions.save
+
     redirect_to( questions_path )
+
+    #
+    #
+    # questions = Question.new question_params
+    # #     questions.question = params[:question]
+    # #     questions.answer = params[:answer]
+    # questions.save
   end
 
   # PATCH/PUT /games/1

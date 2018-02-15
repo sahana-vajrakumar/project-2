@@ -11,7 +11,7 @@
   <img class="mainpic"src="http://fultonchurch.org/wp-content/uploads/2015/01/chf-cartoon-kids.gif">
   <div class="welcomeuser">
     <% if @current_user.present? %>
-      <h3>Welcome, <%= link_to @current_user.name, @current_user %></h3>
+      <h3>Welcome, <%= link_to @current_user.name, @current_user , class: "welcomeuser"%></h3>
     <% else %>
       <h3>Hello children! Tell mummy and daddy to sign up <%= link_to 'here!', new_user_path %></h3>
     <% end %>
@@ -19,17 +19,12 @@
 </div>
 
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>About Us</h2><br>
-      <h4>GIRLS TEAM!!!</h4><br>
+<div id="about" class="container-fluid text-center">
+  <div ><h2>About Us</h2><br><h2>THE GIRLS TEAM!!!</h2><br></div>
       <img src="https://fthmb.tqn.com/Cc99z4KUrSfHVpBABR_DGKCBP_4=/768x0/filters:no_upscale()/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg">
-      <p>SAHANA.LINDA.PRIYANKA</p>
-    </div>
-    <div class="col-sm-4">
-      <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
-    </div>
+    <h4> SAHANA | LINDA | PRIYANKA </h4>
+  </div>
+
   </div>
 </div>
 
@@ -106,7 +101,7 @@
         <h4>"One word... WOW!!"<br><span>Saanvi, 15months, Sahana's LO</span></h4>
       </div>
       <div class="item">
-        <h4>"Could I... BE any more happy with this company?"<br><span>That's Linda talking about us</span></h4>
+        <h4>"Try the Voice APP. Its FUN!! <br><span>Linda's future kid</span></h4>
       </div>
     </div>
 
@@ -125,38 +120,21 @@
 <!-- Container (Pricing Section) -->
 <div id="pricing" class="container-fluid">
   <div class="text-center">
-    <h2>Our Happy Faces</h2>
-    <h4> Thank U Everyone! </h4>
+
   </div>
   <div class="row slideanim">
-    <div class="col-sm-4 .col-md-offset-4 col-xs-6">
+
+    <div class=".col-md-4 col-xs-4">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>HAPPY FACES</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>Ad</strong> pic</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$</h3>
-          <h4>p</h4>
-          <button class="btn btn-lg">S</button>
-        </div>
-      </div>
-    </div>
-    <div class=".col-md-4 .col-md-offset-4 col-xs-6">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>THANK U GUYS!!</h1>
+          <h1>THANK U!!</h1>
         </div>
         <div class="panel-body">
 
-          <p><strong>Sa</strong> Pic</p>
         </div>
         <div class="panel-footer">
-          <h3>$</h3>
-          <h4>p</h4>
-          <button class="btn btn-lg">S</button>
+          <h3>Luke & Michelle</h3>
+          <h4>Everyone in WDI-25</h4>
         </div>
       </div>
     </div>
