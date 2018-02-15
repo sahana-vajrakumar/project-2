@@ -7,9 +7,9 @@
   <div class="col-md-6">
     <% @games.each do |game| %>
 
-        <h1><%= game.category.upcase %></h1><%= link_to 'PLAY', game , :class=> "btn btn-info play_game_btn"%><br><br>
-        <br/>
-        <img class="img-responsive" class="img-thumbnail" src="assets/<%= game.category %>.jpg" alt="..." ><br/>
+      <h1><%= game.category.upcase %></h1><%= link_to 'PLAY', game , :class=> "btn btn-info play_game_btn"%><br />
+      <br/>
+      <%= link_to "#{image_tag game.category}".html_safe, game, class: 'img-responsive img-thumbnail' %><br />
 
   <hr>
     <% end %>
