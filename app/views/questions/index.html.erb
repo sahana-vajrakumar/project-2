@@ -1,3 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1> Questions Index</h1>
+<h1> Questions Index 1</h1>
+<h1> Questions Index </h1>
+
+<h1>Here are your questions!! </h1>
+
+    <% @questions.each do |ques| %>
+        Questions: <%= ques.question %><br>
+        Answers  : <%= ques.answer %><br>
+    <% end %>
+
+<div class="panel-footer">
+<%= link_to 'Add New Questions', new_question_path , class: "btn btn-lg" %>
+</div>

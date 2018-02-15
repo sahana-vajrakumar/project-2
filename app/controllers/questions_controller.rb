@@ -1,55 +1,60 @@
 class QuestionsController < ApplicationController
 
-  # before_action :check_if_logged_in, except: [:show]
-
   # GET /games
   # GET /games.json
   def index
-    @games = Question.all
+    @questions = Question.all
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
-    @game = Question.find params[:id]
+    @questions = Question.find params[:id]
 
   end
 
   # GET /games/new
   def new
-    @game = Question.new
+    @questions = Question.new
   end
 
   # GET /games/1/edit
   def edit
-    @game = Question.find params[:id]
+    @questions = Question.find params[:id]
 
   end
 
   # POST /games
   # POST /games.json
   def create
-    @game = Question.create params[:id]
-    
+    questions = Question.new question_params
+    #     questions.question = params[:question]
+    #     questions.answer = params[:answer]
+    questions.save
+    redirect_to( questions_path )
   end
 
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
+    @questions = Question.find params[:id]
+    Question.update questions_params
+    redirect_to questions_path
   end
 
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
-
+    Question.destroy params[:id]
+    redirect_to root_path
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     #
     #
-    # # Never trust parameters from the scary internet, only allow the white list through.
-    # def game_params
-    #   params.require(:game).permit(:category, :speeds, :levels)
-    # end
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def question_params
+      params.require(:question).permit(:question, :answer)
+    end
 end
