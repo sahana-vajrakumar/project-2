@@ -167,18 +167,27 @@ hide();
     //voice record
 
 
-    $( "#record" ).click(function() {
-      a1.play();
-      final_transcript = ""
-      $( "#tryImg" ).remove();
-      $( "#wordTryagain" ).remove();
-      recognition.lang = 6;
-      recognition.start();
-    });
+    // $( "#record" ).click(function() {
+    //   a1.play();
+    //   final_transcript = ""
+    //   $( "#tryImg" ).remove();
+    //   $( "#wordTryagain" ).remove();
+    //   recognition.lang = 6;
+    //   recognition.start();
+    // });
 
+    document.onkeypress = function(e){
 
+      if(e.keyCode == 32 ){
 
-
+          a1.play();
+          final_transcript = ""
+          $( "#tryImg" ).remove();
+          $( "#wordTryagain" ).remove();
+          recognition.lang = 6;
+          recognition.start();
+        }
+        };
 
 
   // function stopButton() {
@@ -210,11 +219,11 @@ hide();
           play_transcript += event.results[i][0].transcript;
           console.log(play_transcript);
           //this for the level 1 game
-          if(play_transcript === "start")
+          if(play_transcript === "play")
           {
             generateWord();
             hideAll();
-          }else if(play_transcript === "play"){
+          }else if(play_transcript === "start"){
 
             generateImage();
             hideAll();
@@ -232,13 +241,14 @@ hide();
 
     $( "#play" ).click(function() {
 
+// document.onkeypress = function(e){
+//   if(e.keyCode == 13 ){
       play_transcript = ""
-
-
       play.lang = 6;
       play.start();
 
-    });
+    // }
+  });
 
 
    //functions to hide buttons
