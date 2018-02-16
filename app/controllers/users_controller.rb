@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if user.persisted?
     # did user get saved? is the user present now?
       session[:user_id] = user.id
-      redirect_to user
+      redirect_to games_path
       # will take you to the show page
     else
       flash[:errors] = user.errors.full_messages
