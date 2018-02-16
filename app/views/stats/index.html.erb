@@ -8,32 +8,10 @@
     { name: stat.game, data: stat.score }
 } %>
 <br />
-<h3>Accuracy</h3>
+<h3>Average time spent</h3>
 <%= column_chart @average %>
 
+<h3>Accuracy</h3>
+<%= bar_chart @accuracy %>
+
 <hr />
-
-<table style="width: auto" class="table table-striped">
-  <thead>
-    <tr>
-      <th>Game</th>
-      <th>Score</th>
-      <th>Accuracy</th>
-      <th>Average time</th>
-      <th>Level</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stats.each do |stat| %>
-      <tr>
-        <td><%= stat.game_id %></td>
-        <td><%= stat.score %></td>
-        <td><%= stat.accuracy %></td>
-        <td><%= stat.average_time %></td>
-        <td><%= stat.level %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
