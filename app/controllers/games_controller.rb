@@ -12,6 +12,11 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @game = Game.find params[:id]
+    
+
+    @alph = @game.questions.map do |q|
+      q.question
+    end
 
     @questions = @game.questions.map do |q|
       {image: q.question, word: q.answer}

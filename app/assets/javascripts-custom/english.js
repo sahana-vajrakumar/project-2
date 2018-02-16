@@ -1,4 +1,6 @@
-
+console.log(alphabets);
+let array = alphabets[0].split('')
+console.log(array);
 //Actual English Game
   let h1 = $('<h1></h1>');
   let container = $('<div></div>').attr('id' , 'container');
@@ -78,7 +80,8 @@ $(document).ready(function(){
       initializeTimer();
       $('#startGame').hide();
       $('.timer').hide();
-
+      let rand = Math.random(50)+'vh';
+      
        var bouncingBall = anime({
           targets: '.displayedLetter',
           translateY: '40vh',
@@ -90,7 +93,9 @@ $(document).ready(function(){
               value: 1.05,
               duration: 1050,
               delay: 268
-          }
+          },
+          translateX: rand,
+
           // scaleX: {
           //     value: 0,
           //     duration: 1050,
@@ -124,9 +129,9 @@ const initializeTimer = function (){
 
 
   const askQuestion = function () {
-    let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    let index = Math.floor(Math.random() * letters.length);
-    selectedLetter = letters[index];
+    // let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let index = Math.floor(Math.random() * array.length);
+    selectedLetter = array[index];
     span.html(`${selectedLetter}`);
     span.html('Lets do this!!');
     $('.displayedLetter').html(`${selectedLetter}`);
@@ -140,7 +145,7 @@ const initializeTimer = function (){
   }; //askQuestion
 
 
-    const tryAnswer = function ( event ) {
+  const tryAnswer = function ( event ) {
     if(count <=0 ){
       gameOver(scores);
       return;
@@ -167,7 +172,7 @@ const initializeTimer = function (){
   };
 
   //When user presses key
-    $(document).keypress(tryAnswer);
+  $(document).keypress(tryAnswer);
 
 
   const sendAjaxRequest = function( curr_score ) {
