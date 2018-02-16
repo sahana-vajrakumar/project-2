@@ -140,7 +140,7 @@ const initializeTimer = function (){
   }; //askQuestion
 
 
-  const tryAnswer = function ( event ) {
+    const tryAnswer = function ( event ) {
     if(count <=0 ){
       gameOver(scores);
       return;
@@ -167,7 +167,7 @@ const initializeTimer = function (){
   };
 
   //When user presses key
-  $(document).keypress(tryAnswer);
+    $(document).keypress(tryAnswer);
 
 
   const sendAjaxRequest = function( curr_score ) {
