@@ -17,6 +17,7 @@
 <script>
    var gameID = <%= @game.id %>;
    var questions = <%= @questions.to_json.html_safe %>;
+   var alphabets = <%= @alph.to_json.html_safe %>;
 </script>
 
 <script src="/assets/<%= @game.category %>.js"></script>
