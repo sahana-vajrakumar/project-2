@@ -21,12 +21,12 @@
 
 <p>
   <strong>Icon:</strong>
-  <%= @user.icon %>
+  <br>
+  <image id="user_pic" src="<%= @user.icon %>"></image>
 </p>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 <div class="panel-footer">
-  <%= link_to 'Add Words to Teach Your Kids', new_question_path, class: "btn btn-lg" %>
   <%= link_to 'Check Your Stats', stats_path, class: "btn btn-lg" %>
 </div>

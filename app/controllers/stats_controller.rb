@@ -11,7 +11,7 @@ class StatsController < ApplicationController
     stats_group = @stats.group_by { |stat| stat.game.category  }
 
     @score = stats_group.map do |cat, stats|
-      {name: cat, data: stats.map{ |s| [s.created_at, s.score]}.to_h  }
+      {name: cat, data: stats.map{ |s| [s.created_at.to_time.strftime('%B %e, %Y'), s.score]}.to_h  }
       # line = { name: cat, data: {} }
       # stats.each do |stat|
       #   # line[:data].push( {score: stat.score, created_at: stat.created_at } )
@@ -21,7 +21,11 @@ class StatsController < ApplicationController
     end
 
     @average = stats_group.map do |cat, stats|
-      {name: cat, data: stats.map{ |s| [s.created_at, s.average_time]}.to_h  }
+      {name: cat, data: stats.map{ |s| [s.created_at.to_time.strftime('%B %e, %Y'), s.average_time]}.to_h  }
+    end
+
+    @accuracy = stats_group.map do |cat, stats|
+      {name: cat, data: stats.map{ |s| [s.created_at.to_time.strftime('%B %e, %Y'), s.accuracy]}.to_h  }
     end
 
     # p @chart_data

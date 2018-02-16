@@ -6,9 +6,18 @@
   <%= @game.category.upcase %>
 </p>
 
+<% if @game.category == "voice" %>
+<div class="panel-footer">
+  <%= link_to 'Add Words', new_game_question_path(@game), class: "btn btn-lg" %>
+</div>
+<% end %>
+
+
+
 <script>
    var gameID = <%= @game.id %>;
    var questions = <%= @questions.to_json.html_safe %>;
+   var alphabets = <%= @alph.to_json.html_safe %>;
 </script>
 
 <script src="/assets/<%= @game.category %>.js"></script>

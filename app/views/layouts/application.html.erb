@@ -49,30 +49,9 @@
       </div>
     </nav>
     <div class="container"  class="parallax" >
-      <nav>
-        <imgsrc="/assets/funbrain.jpeg">
 
-        <% if @current_user.present? %>
-          <%= link_to @current_user.name, @current_user %>
-          |||
-          <%= link_to 'Home', root_path %>
-          |
-          <%= link_to 'Stats', stats_path %>
-          |
-          <%= link_to 'Games', games_path %>
-          |
-          <%= link_to 'AboutUs', root_path %>
-          |
-          <%= link_to 'Logout', login_path, method: :delete %>
-        <% else %>
-          <%= link_to 'Home', root_path %>
-          |
-          <%= link_to 'Login', login_path %>
-
-        <% end %>
-      </nav>
       <h1> H</h1>
-      <h1> . </h1>
+     <span class="glyphicon glyphicon-heart logo-small"></span> 
     <%= yield %>
   </body>
 </html>

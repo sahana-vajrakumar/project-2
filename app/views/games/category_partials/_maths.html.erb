@@ -1,11 +1,24 @@
-<table width="400" border="1" align="center">
-  <tr>
-    <td><div id="number1">1</div></td>
-    <td><div>+</div></td>
-    <td><div id="number2">2</div></td>
-    <td><div>=</div></td>
-    <td><input type="text"></input></td>
-    <td><input type="button" value="Check"></input></td>
+<div class="container">
 
-  </tr>
-</table>
+
+
+  <div id="problem"></div>
+  <!-- <div>+</div> -->
+
+  <!-- <div>=</div> -->
+
+  <div id="answer"></div>
+
+
+  <button id="start">Start</button>
+  <button id="next_problem">Next</button>
+  <form id="form" onsubmit="return false;">
+  Enter your answer : <input type="integer" name="lname" id="userInput"><br>
+  <input id="submit" type="submit" value="Submit">
+  </form>
+
+  <div id="score"></div>
+  <div id="result">Result: </div>
+
+
+</div>

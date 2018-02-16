@@ -1,5 +1,4 @@
-
-$(document).ready(function(){
+$(document).ready(function() {
 
   let selectedWord;
   let final_transcript = '';
@@ -10,22 +9,15 @@ $(document).ready(function(){
   let score = 0;
   let level = 2;
 
-
-  var a1 = anime({
-    targets: '#record',
-    scale: 1.2,
-    loop: true
-  });
+  var a1 = anime({targets: '#record', scale: 1.2, loop: true});
   a1.pause();
-//test function to check if voive API is working
-
-
 
   //function to display image
 
-  const generateImage = function(){
+  const generateImage = function() {
+      $("#image").append(`<p id="rule">Press the space button and say the name of the animal shown above</p>`);
 
-       // var questions = [{"image":"https://media.giphy.com/media/OoZbGs4S4Q9oI/giphy.gif","word":"duck"},{"image":"http://www.animatedimages.org/data/media/202/animated-dog-image-0011.gif","word":"dog"}];
+    // var questions = [{"image":"https://media.giphy.com/media/OoZbGs4S4Q9oI/giphy.gif","word":"duck"},{"image":"http://www.animatedimages.org/data/media/202/animated-dog-image-0011.gif","word":"dog"}];
 
     console.log(questions);
 
@@ -37,23 +29,19 @@ $(document).ready(function(){
   }
 
 
-  const generateWord = function(){
+    //function to display word
 
-
-
+  const generateWord = function() {
+    $("#image").append(`<p id="rule">Press the space button and say the word shown below</p>`);
     console.log(questions);
 
     guessWord = questions[index].word
     console.log(guessWord);
-    $( "#voice" ).append( `<p id="word">${guessWord}</p>` );
+    $("#voice").append(`<p id="word">${guessWord}</p>`);
 
   }
 
-
-
-
-
-//function for voice API
+  //function for voice API
 
   let recognition = new webkitSpeechRecognition();
 
@@ -66,32 +54,32 @@ $(document).ready(function(){
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
         //this for the level 1 game
-        if(level === 1){
-        if(final_transcript === questions[index].word){
-          console.log('It is a match');
+        if (level === 1) {
+          if (final_transcript === questions[index].word) {
+            console.log('It is a match');
 
-          $('#image').prepend('<img id="Img" src= "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-128.png" />')
-          score += 1;
-          $("#next").css("visibility" , "visible");
-        }else{
-          $('#image').prepend('<img id="tryImg" src= "http://education.wichita.edu/caduceus/examples/servings/images/text_sorry_try_again.gif" />')
+            $('#image').prepend('<img id="Img" src= "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678134-sign-check-128.png" />')
+            score += 1;
+            $("#next").css("visibility", "visible");
+          } else {
+            $('#image').prepend('<img id="tryImg" src= "http://education.wichita.edu/caduceus/examples/servings/images/text_sorry_try_again.gif" />')
 
-          final_transcript = ""
+            final_transcript = ""
+          }
+          //this is for the level 2 game
+        } else {
+          if (final_transcript === questions[index].word) {
+            console.log('It is a match');
+
+            $('#image').prepend(`<img id="wordImg" src= "${questions[index].image}" />`)
+            score += 1;
+            $("#nextWord").css("visibility", "visible");
+          } else {
+            $('#image').prepend('<img id="wordTryagain" src= "http://education.wichita.edu/caduceus/examples/servings/images/text_sorry_try_again.gif" />')
+
+            final_transcript = ""
+          }
         }
-        //this is for the level 2 game
-      }else{
-        if(final_transcript === questions[index].word){
-          console.log('It is a match');
-
-          $('#image').prepend(`<img id="wordImg" src= "${questions[index].image}" />`)
-          score += 1;
-          $("#nextWord").css("visibility" , "visible");
-        }else{
-          $('#image').prepend('<img id="wordTryagain" src= "http://education.wichita.edu/caduceus/examples/servings/images/text_sorry_try_again.gif" />')
-
-          final_transcript = ""
-        }
-      }
 
       } else {
         interim_transcript += event.results[i][0].transcript;
@@ -101,94 +89,88 @@ $(document).ready(function(){
     //console.log(final_transcript);
     a1.pause();
     console.log(final_transcript);
-      // a1.pause();
+    // a1.pause();
 
   };
 
-    //onclick for level 1
+  //onclick for level 1
 
-
-  $( "#level1" ).click(function() {
-   generateImage();
-  hide();
+  $("#level1").click(function() {
+    generateImage();
+    hide();
 
   });
 
+  $("#next").click(function() {
 
-
-  $( "#next" ).click(function() {
-
-    $( "#theImg" ).remove();
-    $( "#Img" ).remove();
-    $("#next").css("visibility" , "hidden");
+    $("#theImg").remove();
+    $("#Img").remove();
+    $("#rule").remove();
+    $("#next").css("visibility", "hidden");
     final_transcript = ""
     index += 1;
     generateImage();
 
   });
 
-
   //onclick for level 2
 
+  $("#level2").click(function() {
 
-  $( "#level2" ).click(function() {
-
-   generateWord();
-hide();
+    generateWord();
+    hide();
   });
 
-    $( "#nextWord" ).click(function() {
-      console.log(`index:${index} length${questions.length}`);
-      if (index + 1 < questions.length){
+  $("#nextWord").click(function() {
+    console.log(`index:${index} length${questions.length}`);
+    if (index + 1 < questions.length) {
 
-      $( "#wordImg" ).remove();
+      $("#wordImg").remove();
+      $("#rule").remove();
 
-      $( "#word" ).remove();
+      $("#word").remove();
 
-      $("#nextWord").css("visibility" , "hidden");
+      $("#nextWord").css("visibility", "hidden");
 
       final_transcript = ""
 
-
       index += 1;
       generateWord();
-    }else{
-      $( "#wordImg" ).remove();
+    } else {
+      $("#wordImg").remove();
 
-      $( "#word" ).remove();
+      $("#word").remove();
 
-      $("#nextWord").css("visibility" , "hidden");
-      $("#record").css("visibility" , "hidden");
-      $( "#voice" ).append( `<p id="word">Game Over score:${score}</p>` );
+      $("#nextWord").css("visibility", "hidden");
+      $("#record").css("visibility", "hidden");
+      $("#voice").append(`<p id="word">Game Over score:${score}</p>`);
     }
 
-    });
+  });
 
-    //voice record
+  //voice record
 
+  // $( "#record" ).click(function() {
+  //   a1.play();
+  //   final_transcript = ""
+  //   $( "#tryImg" ).remove();
+  //   $( "#wordTryagain" ).remove();
+  //   recognition.lang = 6;
+  //   recognition.start();
+  // });
 
-    // $( "#record" ).click(function() {
-    //   a1.play();
-    //   final_transcript = ""
-    //   $( "#tryImg" ).remove();
-    //   $( "#wordTryagain" ).remove();
-    //   recognition.lang = 6;
-    //   recognition.start();
-    // });
+  document.onkeypress = function(e) {
 
-    document.onkeypress = function(e){
+    if (e.keyCode == 32) {
 
-      if(e.keyCode == 32 ){
-
-          a1.play();
-          final_transcript = ""
-          $( "#tryImg" ).remove();
-          $( "#wordTryagain" ).remove();
-          recognition.lang = 6;
-          recognition.start();
-        }
-        };
-
+      a1.play();
+      final_transcript = ""
+      $("#tryImg").remove();
+      $("#wordTryagain").remove();
+      recognition.lang = 6;
+      recognition.start();
+    }
+  };
 
   // function stopButton() {
   //
@@ -199,85 +181,68 @@ hide();
   //   recognition.stop();
   // });
 
-
-
-
-
   //this is for coosing levels
 
+  let play = new webkitSpeechRecognition();
 
+  // recognition.continuous = true;
+  // recognition.interimResults = true;
 
-    let play = new webkitSpeechRecognition();
+  play.onresult = function(event) {
+    var interim_transcript = '';
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        play_transcript += event.results[i][0].transcript;
+        console.log(play_transcript);
+        //this for the level 1 game
+        if (play_transcript === "play") {
+          generateWord();
+          hideAll();
+        } else if (play_transcript === "let's play") {
 
-    // recognition.continuous = true;
-    // recognition.interimResults = true;
+          generateImage();
+          hideAll();
 
-    play.onresult = function(event) {
-      var interim_transcript = '';
-      for (var i = event.resultIndex; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          play_transcript += event.results[i][0].transcript;
-          console.log(play_transcript);
-          //this for the level 1 game
-          if(play_transcript === "play")
-          {
-            generateWord();
-            hideAll();
-          }else if(play_transcript === "start"){
-
-            generateImage();
-            hideAll();
-
-          }
-
-
-        } else {
-          interim_transcript += event.results[i][0].transcript;
         }
+
+      } else {
+        interim_transcript += event.results[i][0].transcript;
       }
+    }
 
+  };
 
-    };
+  $("#play").click(function() {
 
-    $( "#play" ).click(function() {
-
-// document.onkeypress = function(e){
-//   if(e.keyCode == 13 ){
-      play_transcript = ""
-      play.lang = 6;
-      play.start();
+    // document.onkeypress = function(e){
+    //   if(e.keyCode == 13 ){
+    play_transcript = ""
+    play.lang = 6;
+    play.start();
 
     // }
   });
 
+  //functions to hide buttons
 
-   //functions to hide buttons
+  let hide = function() {
 
-    let hide = function(){
+    $("#record").css("visibility", "visible");
+    $("#level1").css("visibility", "hidden");
+    $("#level2").css("visibility", "hidden");
+    $("#play").css("visibility", "hidden");
+    $("#msg").css("visibility", "hidden");
 
-      $("#record").css("visibility" , "visible");
-      $("#level1").css("visibility" , "hidden");
-      $("#level2").css("visibility" , "hidden");
-      $("#play").css("visibility" , "hidden");
-      $("#msg").css("visibility" , "hidden");
+  }
 
-    }
+  let hideAll = function() {
 
+    $("#record").css("visibility", "visible");
+    $("#level1").css("visibility", "hidden");
+    $("#level2").css("visibility", "hidden");
+    $("#play").css("visibility", "hidden");
+    $("#msg").css("visibility", "hidden");
 
-
-    let hideAll = function(){
-
-      $("#record").css("visibility" , "visible");
-      $("#level1").css("visibility" , "hidden");
-      $("#level2").css("visibility" , "hidden");
-      $("#play").css("visibility" , "hidden");
-      $("#msg").css("visibility" , "hidden");
-
-    }
-
-
-
-
-
+  }
 
 })
