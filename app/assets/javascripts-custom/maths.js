@@ -5,39 +5,52 @@
   // If wrong, end of game
 // Each problem has to be solved within 3 seconds
   // Otherwise, end of game
+let score = $('<p></p>').attr('id', 'score');
+let scores = 0
 
-  let number1 = Math.floor((Math.random() * 10) + 1);
-  let number2 = Math.floor((Math.random() * 10) + 1);
+$(document).ready(function(){
 
-  document.getElementById("number1").innerHTML=number1;
-  document.getElementById("number2").innerHTML=number2;
+  $( "#start" ).click(function() {
+    createProblem()
+  });
 
-  //Answer
-  let answer = number1 + number2;
+  const createProblem = function(){
+    let number1 = Math.floor(Math.random() * 4);
+    let number2 = Math.floor(Math.random() * 4);
+    // const operator = ['+', '-', '*'];
+    // const index = Math.floor(Math.random() * operator.length);
+    // const selectedOperator = operator[index];
+    //
+    // console.log(operator[index]);
 
-  //add click handler with check answer
+    let answer = number1 + number2;
 
-  let btn = document.querySelector('input[type=button][value=Check]');
-
-
-  btn.onclick = function(){
-
-    let checkAnswer = document.querySelector('input[type=text]');
-    let value = checkAnswer.value;
-
-    if (value == answer){
-      alert('Yay!');
-    }else{
-      alert('Oops, the answer was ' + answer);
-    }
-
-     //
-     // document.querySelector('input[type=text]').value = "";
-     // document.getElementById('number1').innerHTML = "";
-     // document.getElementById('number2').innerHTML = "";
-     //
-
-   answer = number1 + number2
-
-
+    console.log(answer);
   };
+
+});
+
+$(document).keypress(function(e) {
+  console.log(e.key);
+});
+
+
+
+$.ajax({
+  url: '/stats',
+  method: 'post',
+  data: {
+    score: scores,
+    game_id: gameID,
+    accuracy: 20,
+    average_time: 20
+  },
+  //processData: false
+})
+.done(function (data) {
+  console.log(data, data.average_time);
+  // Once successful request is done, redirect user to the Profile page
+})
+.fail(function () {
+  console.log('no good!');
+});
