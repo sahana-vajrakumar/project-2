@@ -1,4 +1,10 @@
-<%= form_with(model: @questions, html: {multipart: true} ,local: true) do |form| %>
+
+<div style ="color:red; font-size: 20px">
+  <%=flash[:error]%>
+</div>
+
+
+<%= form_with(model: @question, url: [@game, @question], html: {multipart: true} ,local: true) do |form| %>
 
   <div class="field">
     <%= form.label :question, "Images" %>

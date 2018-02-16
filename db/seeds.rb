@@ -1,9 +1,9 @@
 
 User.destroy_all
 
-u1 = User.create name:'Priyanka', email: 'priyanka@mail.com', password: 'chicken', icon: 'https://image.flaticon.com/icons/svg/53/53129.svg'
-u2 = User.create name: 'Sahana', email:'sahana@mail.com', password: 'chicken', icon: 'https://image.flaticon.com/icons/svg/53/53129.svg'
-u3 = User.create name: 'Linda', email:'linda@mail.com', password: 'chicken', icon: 'https://image.flaticon.com/icons/svg/53/53129.svg'
+u1 = User.create name:'Priyanka', email: 'priyanka@mail.com', password: 'chicken', icon: 'http://www.kidsworldfun.com/images/story-contest/funny-laughing-girl.png'
+u2 = User.create name: 'Sahana', email:'sahana@mail.com', password: 'chicken', icon: 'http://www.clker.com/cliparts/P/0/s/w/H/D/girl-face-cartoon-md.png'
+u3 = User.create name: 'Linda', email:'linda@mail.com', password: 'chicken', icon: 'https://ih1.redbubble.net/image.120565732.7832/sticker,375x360-bg,ffffff.u2.png'
 
 puts "Created #{ User.all.length } users."
 

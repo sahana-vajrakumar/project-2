@@ -13,9 +13,10 @@ class QuestionsController < ApplicationController
 
   end
 
-  # GET /games/new
+  # GET /games/:id/questions/new
   def new
-    @questions = Question.new
+    @question = Question.new
+    @game = Game.find params[:game_id]
   end
 
   # GET /games/1/edit
@@ -27,16 +28,27 @@ class QuestionsController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-
-    questions = Question.new(question_params)
+    game = Game.find params[:game_id]
+    question = game.questions.new( question_params )
+    # questions = Question.new(question_params)
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
-      questions.question = req["public_id"]
-      # raise 'hell'
-    end
-    questions.save
 
-    redirect_to( questions_path )
+      question.question = req["public_id"]
+      # raise 'hell'
+
+      if question.save
+        redirect_to( game_questions_path(game) )
+      else
+        # handle error
+        flash[:error] = "Upload Error!! Pls try again!!"
+      end
+
+    else
+      # no file specified error
+      flash[:error] = "Question field cannot be empty... Please try again!!"
+
+    end
 
     #
     #
