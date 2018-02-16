@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Here are your game statistics!</h1>
+<h1>Game statistics</h1>
 
 <h3>Scores</h3>
 <%= line_chart @score %>
@@ -10,6 +10,8 @@
 <br />
 <h3>Average time spent</h3>
 <%= column_chart @average %>
+
+<br />
 
 <h3>Accuracy</h3>
 <%= bar_chart @accuracy %>
