@@ -81,7 +81,7 @@ $(document).ready(function(){
       $('#startGame').hide();
       $('.timer').hide();
       let rand = Math.random(50)+'vh';
-
+      
        var bouncingBall = anime({
           targets: '.displayedLetter',
           translateY: '40vh',
@@ -94,7 +94,7 @@ $(document).ready(function(){
               duration: 1050,
               delay: 268
           },
-          translateX: Math.random(50)+'vh',
+          translateX: rand,
 
           // scaleX: {
           //     value: 0,
@@ -145,7 +145,7 @@ const initializeTimer = function (){
   }; //askQuestion
 
 
-    const tryAnswer = function ( event ) {
+  const tryAnswer = function ( event ) {
     if(count <=0 ){
       gameOver(scores);
       return;
@@ -172,7 +172,7 @@ const initializeTimer = function (){
   };
 
   //When user presses key
-    $(document).keypress(tryAnswer);
+  $(document).keypress(tryAnswer);
 
 
   const sendAjaxRequest = function( curr_score ) {
