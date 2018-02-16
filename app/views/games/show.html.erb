@@ -6,7 +6,7 @@
   <%= @game.category.upcase %>
 </p>
 
-<% if @current_user %>
+<% if @game.category == "voice" %>
 <div class="panel-footer">
   <%= link_to 'Add Words', new_game_question_path(@game), class: "btn btn-lg" %>
 </div>
