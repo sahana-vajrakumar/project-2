@@ -24,7 +24,7 @@ q2 = Question.create game: g4, question: "http://www.animatedimages.org/data/med
 q3 = Question.create game: g4, question: "http://bestanimations.com/Animals/Mammals/Elephants/elephantclipart/cute-elephant-animated-clip-art-gif-2.gif" , answer: "elephant"
 q4 = Question.create game: g4, question: "http://laoblogger.com/images/3d-cartoon-clipart-hd-6.jpg" , answer:"lion"
 q5 = Question.create game: g4, question: "http://78.media.tumblr.com/tumblr_m6srdkC8m21qgd7tso1_500.gif" , answer:"Amir"
-q6 = Question.create game: g1, question: "abcdefghijklmnopqrstuvwxyz"
+q6 = Question.create game: g1, question: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 puts "Created #{ Question.all.length } questions."

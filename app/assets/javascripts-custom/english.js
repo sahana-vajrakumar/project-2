@@ -81,7 +81,7 @@ $(document).ready(function(){
       $('#startGame').hide();
       $('.timer').hide();
       let rand = Math.random(50)+'vh';
-      
+
        var bouncingBall = anime({
           targets: '.displayedLetter',
           translateY: '40vh',
@@ -151,7 +151,9 @@ const initializeTimer = function (){
       return;
     }
     console.log(event.key);
-    if(selectedLetter === event.key){
+    let temp = event.key.toUpperCase();
+    console.log(temp);
+    if(selectedLetter === temp){
       span.html('');
       $('#main').append(span);
       scores += 1;
